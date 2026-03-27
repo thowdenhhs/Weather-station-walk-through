@@ -1,0 +1,199 @@
+# yaml-language-server: $schema=https://vscodeedu.com/assets/schema/course-v2.schema.json
+id: lessonpart1
+title: Page 1
+content: >
+  ### Scenario
+
+
+  A weather station wants a simple Python program to record the temperature for
+  7 days and then analyze the data.
+
+
+  ### Task
+
+
+  Write a Python program that:
+
+
+  1. **Asks the user to enter a temperature for 7 days.**
+     - Use a loop to prompt the user for input.
+     - Ensure the input is a valid number.
+
+  2. **Checks that the temperature is valid.**
+     - Validate that the input is a number and within a reasonable range (e.g., -50 to 50 degrees Celsius).
+
+  3. **Keeps a running total.**
+     - Accumulate the total temperature to calculate the average later.
+
+  4. **Works out the highest temperature.**
+     - Track the maximum temperature entered.
+
+  5. **Works out the lowest temperature.**
+     - Track the minimum temperature entered.
+
+  6. **Calculates the average temperature.**
+     - Divide the total temperature by the number of days.
+
+  7. **Counts how many days were:**
+     - **Hot** (e.g., above 30 degrees Celsius)
+     - **Mild** (e.g., between 15 and 30 degrees Celsius)
+     - **Cold** (e.g., below 15 degrees Celsius)
+
+  8. **Displays the results clearly.**
+     - Print the highest, lowest, and average temperatures.
+     - Print the count of hot, mild, and cold days.
+
+  ### Example Code
+
+
+  ```python
+
+  def main():
+      temperatures = []
+      hot_days = mild_days = cold_days = 0
+
+      for day in range(1, 8):
+          while True:
+              try:
+                  temp = float(input(f"Enter the temperature for day {day}: "))
+                  if -50 <= temp <= 50:
+                      temperatures.append(temp)
+                      break
+                  else:
+                      print("Please enter a temperature between -50 and 50.")
+              except ValueError:
+                  print("Invalid input. Please enter a number.")
+
+      total_temp = sum(temperatures)
+      highest_temp = max(temperatures)
+      lowest_temp = min(temperatures)
+      average_temp = total_temp / len(temperatures)
+
+      for temp in temperatures:
+          if temp > 30:
+              hot_days += 1
+          elif 15 <= temp <= 30:
+              mild_days += 1
+          else:
+              cold_days += 1
+
+      print(f"\nHighest Temperature: {highest_temp}")
+      print(f"Lowest Temperature: {lowest_temp}")
+      print(f"Average Temperature: {average_temp:.2f}")
+      print(f"Hot Days: {hot_days}")
+      print(f"Mild Days: {mild_days}")
+      print(f"Cold Days: {cold_days}")
+
+  if __name__ == "__main__":
+      main()
+  ```
+
+
+  ### Reflection
+
+
+  Consider how you might modify this program to handle more days or different
+  temperature ranges. How could you improve the user experience or the program's
+  efficiency?
+questionGroups:
+  - id: "1"
+    questions:
+      - id: "1"
+        type: multiple
+        content: What is the purpose of using a loop in the weather station program?
+        options:
+          - id: "1"
+            value: To prompt the user for temperature input for each of the 7 days.
+            explanation: The loop is used to repeatedly ask the user for temperature input
+              for each day.
+            isCorrect: true
+          - id: "2"
+            value: To calculate the average temperature.
+            explanation: The average temperature is calculated after collecting all
+              temperature inputs.
+          - id: "3"
+            value: To display the results clearly.
+            explanation: Displaying results is done after processing all inputs, not within
+              the loop.
+  - id: "2"
+    questions:
+      - id: "1"
+        type: string
+        content: What is the purpose of validating the temperature input in the weather
+          station program?
+        options:
+          - id: "1"
+            value: ensure validity
+            explanation: Validating the input ensures that the temperature is a number and
+              within a reasonable range.
+            isCorrect: true
+  - id: "3"
+    questions:
+      - id: "1"
+        type: choice
+        content: What is the purpose of tracking the maximum temperature in the weather
+          station program?
+        options:
+          - id: "1"
+            value: To determine the hottest day recorded during the week.
+            explanation: Tracking the maximum temperature helps identify the hottest day.
+            isCorrect: true
+          - id: "2"
+            value: To calculate the average temperature more accurately.
+            explanation: The maximum temperature is not needed for calculating the average.
+          - id: "3"
+            value: To ensure all temperature inputs are valid numbers.
+            explanation: Input validation is handled separately from tracking maximum
+              temperature.
+  - id: "4"
+    questions:
+      - id: "1"
+        type: multiple
+        content: What is the purpose of calculating the average temperature in the
+          weather station program?
+        options:
+          - id: "1"
+            value: To determine the overall temperature trend over the 7 days.
+            explanation: Calculating the average temperature helps to understand the general
+              temperature trend over the period.
+            isCorrect: true
+          - id: "2"
+            value: To find the highest temperature recorded.
+            explanation: The highest temperature is determined by tracking the maximum
+              temperature, not by calculating the average.
+          - id: "3"
+            value: To validate the temperature inputs.
+            explanation: Temperature validation ensures inputs are numbers within a
+              reasonable range, not related to calculating the average.
+  - id: "5"
+    questions:
+      - id: "1"
+        type: choice
+        content: What is the purpose of calculating the average temperature in the
+          weather station program?
+        options:
+          - id: "1"
+            value: To determine the overall temperature trend over the 7 days.
+            explanation: Calculating the average temperature helps to understand the general
+              temperature trend over the period.
+            isCorrect: true
+          - id: "2"
+            value: To find the highest temperature recorded.
+            explanation: The highest temperature is determined by tracking the maximum
+              temperature, not by calculating the average.
+          - id: "3"
+            value: To validate the temperature inputs.
+            explanation: Temperature validation ensures inputs are numbers within a
+              reasonable range, not related to calculating the average.
+  - id: "6"
+    questions:
+      - id: "1"
+        type: string
+        content: What is the purpose of calculating the average temperature in the
+          weather station program?
+        options:
+          - id: "1"
+            value: analysis
+            explanation: Calculating the average temperature helps analyze the overall
+              weather trend over the 7 days.
+            isCorrect: true
